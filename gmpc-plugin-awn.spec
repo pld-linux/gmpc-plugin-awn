@@ -2,14 +2,16 @@
 Summary:	Avant Window Navigator Plugin
 Name:		gmpc-plugin-awn
 Version:	11.8.16
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Sound
 Source0:	http://download.sarine.nl/Programs/gmpc/%{version}/%{source_name}-%{version}.tar.gz
 # Source0-md5:	ac3b898fc0be8f6f568441b84f651986
+Patch0:		libdir.patch
 URL:		http://gmpc.wikia.com/wiki/GMPC_PLUGIN_AWN
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake
+BuildRequires:	dbus-glib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gmpc-devel >= 0.15.4.96
 BuildRequires:	intltool
@@ -22,6 +24,7 @@ Integrates GMPC with Avant Window Navigator.
 
 %prep
 %setup -qn %{source_name}-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -29,7 +32,6 @@ Integrates GMPC with Avant Window Navigator.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
 %configure
 %{__make}
 

@@ -1,0 +1,11 @@
+--- gmpc-awn-11.8.16/src/Makefile.am	2012-01-29 02:57:21.654636728 +0200
++++ gmpc-awn-11.8.16/src/Makefile.am	2012-01-29 02:59:01.702528406 +0200
+@@ -1,6 +1,5 @@
+-libdir=${prefix}/lib/gmpc/plugins/
+-
+-lib_LTLIBRARIES = awnplugin.la
++plugindir = $(libdir)/gmpc/plugins
++plugin_LTLIBRARIES = awnplugin.la
+ 
+ awnplugin_la_SOURCES= plugin.c 
+ 
